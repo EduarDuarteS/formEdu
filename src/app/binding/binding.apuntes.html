@@ -1,0 +1,13 @@
+
+<!-- No binding -->
+<input  name="firstname" ngModel>
+
+<!-- one way binding -->
+<input  name="firstname" [ngModel]="firstName">
+
+
+<!-- two way binding -->
+<input  name="firstname" [ngModel]="firstName"
+                         (ngModelChange)="firsName=$event">
+<!-- two way binding Banna in the box-->
+<input  name="firstname" [(ngModel)]="firstName">
