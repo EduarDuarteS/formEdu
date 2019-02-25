@@ -5,9 +5,52 @@
   </h1>
   <img width="300" alt="Angular Logo" src=".\assets\background_app.jpg">
 </div>
-<h2>Angular Forms: </h2>
-<form #form="ngForm" >
-  <input type="text" placeholder="apellido" name="apell" ngModel >
-  <button type="submit" name="button">OK</button>
-  <h4>es pristine: {{ form.pristine }}</h4>
-</form>
+
+<app-binding></app-binding>
+<div class="container">
+  <h2>Angular Forms: </h2>
+  <form #form="ngForm" >
+    <div class="form-group">
+      <label for="">Firs Name</label>
+      <input type="text" class="form-control" name="firsName" ngModel >
+    </div>
+    <div class="form-group">
+      <label for="">Last Name</label>
+      <input type="text" class="form-control" name="lastName" ngModel >
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" name="tiempo-completo" ngModel >  Full Time Employee
+      </label>
+    </div>
+    <label>Pyment Type </label>
+    <div class="c-radio">
+      <label>
+        <input type="radio" name="tipo-pago " value="TC">
+        TC
+      </label>
+    </div>
+    <div class="c-radio">
+      <label>
+        <input type="radio" name="tipo-pago " value="TD" checked>
+        TD
+      </label>
+    </div>
+
+    <div class="form-group">
+      <select class="form-control" >
+        <option *ngFor="let lang of languages">
+          {{lang}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Date</label>
+      <input type="color" class="form-control" name="dateEnt" ngModel >
+    </div>
+
+    <button class="btn btn-primary" type="submit" name="button">OK</button>
+    <h4>es pristine: {{ form.pristine }}</h4>
+  </form>
+</div>
