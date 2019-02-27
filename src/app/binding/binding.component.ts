@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../models/employee.model';
 
 @Component({
   selector: 'app-binding',
@@ -11,5 +12,7 @@ export class BindingComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  usuario = new Employee ('Eduard','Duarte');
 
 }
