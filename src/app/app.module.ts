@@ -9,13 +9,15 @@ import { CommonModule } from '@angular/common';
 import { BindingComponent } from './binding/binding.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { ValidateComponent } from './validate/validate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BindingComponent,
     FormularioComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ValidateComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
+      { path: 'validate', component: ValidateComponent },
       { path: 'binding', component: BindingComponent },
       { path: 'form', component: FormularioComponent },
       { path: 'welcome', component: WelcomeComponent },
