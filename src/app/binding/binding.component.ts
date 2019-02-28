@@ -13,6 +13,12 @@ export class BindingComponent implements OnInit {
   ngOnInit() {
   }
 
-  usuario = new Employee ('Eduard','Duarte');
+  languages = ["ESP", "ENG", "POT"]
+  usuario = new Employee ('Eduard','Duarte',"",false,"TC","ENG");
 
+  firtsCapitanFunc(inValue: string){
+    if (inValue.length > 0){
+      this.usuario.secondSurname = inValue.charAt(0).toUpperCase() + inValue.slice(1);
+    }
+  }
 }

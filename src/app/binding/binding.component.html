@@ -1,43 +1,47 @@
 <div class="container">
   <h2>Angular Forms: </h2>
-  <form #form="ngForm" >
+  <form #form="ngForm">
     <div class="form-group">
       <label for="">Firs Name</label>
-      <input type="text" class="form-control" name="firsName" [ngModel]='usuario.firstName' >
+      <input type="text" class="form-control" name="firsName" [ngModel]='usuario.firstName'>
     </div>
     <div class="form-group">
-      <label for="">Last Name</label>
-      <input type="text" class="form-control" name="lastName" [(ngModel)]='usuario.lastName' >
+      <label for="">first surname</label>
+      <input type="text" class="form-control" name="lastName" [(ngModel)]='usuario.lastName'>
     </div>
-
-    <!--
+    <div class="form-group">
+      <label for="">second surname</label>
+      <input type="text" class="form-control" name="secondSurname" [ngModel]='usuario.secondSurname' (ngModelChange)='firtsCapitanFunc($event)'>
+      <!--   (ngModelChange)='usuario.secondSurname=$event' >  -->
+    </div>
     <div class="checkbox">
       <label>
-        <input type="checkbox" name="tiempo-completo" ngModel >  Full Time Employee
+        <input type="checkbox" name="tiempo-completo" [(ngModel)]='usuario.isFullTime'> Full Time Employee
       </label>
     </div>
+
     <label>Pyment Type </label>
     <div class="c-radio">
       <label>
-        <input type="radio" name="tipo-pago " value="TC">
+        <input type="radio" name="tipo-pago " value="TC" [(ngModel)]="usuario.paymentType">
         TC
       </label>
     </div>
     <div class="c-radio">
       <label>
-        <input type="radio" name="tipo-pago " value="TD" checked>
+        <input type="radio" name="tipo-pago " value="TD" [(ngModel)]="usuario.paymentType" checked >
         TD
       </label>
     </div>
 
     <div class="form-group">
-      <select class="form-control" >
+      <select class="form-control" [(ngModel)]="usuario.languages" name="language"  >
         <option *ngFor="let lang of languages">
           {{lang}}
         </option>
       </select>
     </div>
-
+<!--
     <div class="form-group">
       <label>Date</label>
       <input type="color" class="form-control" name="dateEnt" ngModel >
