@@ -3,12 +3,59 @@
   <form #form="ngForm">
     <div class="form-group">
       <label for="">Firs Name</label>
-      <input type="text" #pNombre class="form-control" name="firsName" ngModel>
+      <input type="text" #pNombre #fName='ngModel'  class="form-control" name="firsName" ngModel>
     </div>
   </form>
 </div>
 
+<!--Cards-->
+<div class="card-deck">
+  <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Touched</div>
+    <div class="card-body">
+      <h5 class="card-title">Primary card title</h5>
+      <li>ng-touched</li>
+      <li>ng-untouched</li>
+      <hr />
+      <li>touched</li>
+      <li>untouched</li>
+    </div>
+  </div>
+  <div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header">Header</div>
+    <div class="card-body">
+      <h5 class="card-title">Light card title</h5>
+
+      <li>ng-pristine</li>
+      <li>ng-dirty</li>
+      <hr />
+      <li>pristine</li>
+      <li>dirty</li>
+
+    </div>
+  </div>
+  <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Header</div>
+    <div class="card-body">
+      <h5 class="card-title">Primary card title</h5>
+      <li>ng-valid</li>
+      <li>ng-invalid</li>
+      <hr />
+      <li>valid</li>
+      <li>invalid</li>
+    </div>
+  </div>
+  <div class="card bg-light mb-3" style="max-width: 18rem;">
+    <div class="card-header">Header</div>
+    <div class="card-body">
+      <h5 class="card-title">Light card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+</div>
+
 <h3>Classes</h3>
 <h4>{{ pNombre.className }}</h4>
+{{fName.dirty}}
 
-<a class="btn btn-primary btn-lg"  role="button" id="boton1" (click)='logEd(pNombre)'>Mostar &raquo;</a>
+<a class="btn btn-primary btn-lg" role="button" id="boton1" (click)='logEd(pNombre)'>Consola &raquo;</a>
