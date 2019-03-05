@@ -1,3 +1,58 @@
-<p>
-  validate works!
-</p>
+<div class="container">
+  <h2>Angular Forms: </h2>
+  <form #form="ngForm" >
+    <div class="form-group">
+      <label >Firs Name</label>
+      <input #fName='ngModel' required type="text" class="form-control" name="firsName"  ngModel >
+    </div>
+
+  
+    <!--Card Single-->
+    <div class="card-deck">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Touched</div>
+        <div class="card-body">
+          <h5 class="card-title">Primary card title</h5>
+          <li>ng-touched</li>
+          <li>ng-untouched</li>
+          <hr/>
+          <li>touched</li>
+          <li>untouched</li>
+        </div>
+      </div>
+      <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Light card title</h5>
+
+          <li>ng-pristine</li>
+          <li>ng-dirty</li>
+          <hr/>
+          <li>pristine</li>
+          <li>dirty</li>
+
+        </div>
+      </div>
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Primary card title</h5>
+          <li>ng-valid</li>
+          <li>ng-invalid</li>
+          <hr/>
+          <li>valid</li>
+          <li>invalid</li>
+        </div>
+      </div>
+      <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Light card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    {{fName.className}}
+    {{fName.dirty}}
+  </form>
+</div>
