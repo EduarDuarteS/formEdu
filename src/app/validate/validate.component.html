@@ -10,6 +10,16 @@
 
 <!--Cards-->
 <div class="card-deck">
+  <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">Classes</div>
+    <div class="card-body">
+      <h5 class="card-title">Classes Angular</h5>
+      <p class="card-text">{{ pNombre.className }}</p>
+      <p>Pristine: <span class="badge" [class.badge-success]="fName.pristine" [class.badge-danger]="fName.dirty">{{fName.pristine}}</span></p>
+      <p>UnTouched: <span class="badge" [class.badge-success]="fName.untouched" [class.badge-danger]="fName.touched">{{fName.untouched}}</span></p>
+      <p>Valid: <span class="badge" [class.badge-success]="fName.valid" [class.badge-danger]="fName.invalid">{{fName.valid}}</span></p>
+    </div>
+  </div>
   <div class="card bg-light mb-3" style="max-width: 18rem;">
     <div class="card-header">State Touched</div>
     <div class="card-body">
@@ -45,16 +55,6 @@
       <h3> <span class="badge" [class.badge-success]="fName.invalid" [class.badge-secondary]="fName.valid">invalid</span> </h3>
     </div>
   </div>
-  <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-    <div class="card-header">Classes</div>
-    <div class="card-body">
-      <h5 class="card-title">Classes Angular</h5>
-      <p class="card-text">{{ pNombre.className }}</p>
-      <p>Pristine: <span class="badge" [class.badge-success]="fName.pristine" [class.badge-danger]="fName.dirty">{{fName.pristine}}</span></p>
-      <p>UnTouched: <span class="badge" [class.badge-success]="fName.untouched" [class.badge-danger]="fName.touched">{{fName.untouched}}</span></p>
-      <p>Valid: <span class="badge" [class.badge-success]="fName.valid" [class.badge-danger]="fName.invalid">{{fName.valid}}</span></p>
-    </div>
-  </div>
-</div>
 
-<a class="btn btn-primary btn-lg" role="button" id="boton1" (click)='logEd(pNombre)'>Consola &raquo;</a>
+</div>
+<button type="button" class="btn btn-outline-dark"  (click)='logEd(pNombre)'>Consola &raquo;</button>
