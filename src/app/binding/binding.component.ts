@@ -13,11 +13,22 @@ export class BindingComponent implements OnInit {
   ngOnInit() {
   }
 
-  languages = ["ESP", "ENG", "POT"]
-  usuario = new Employee ('Eduard','Duarte',"",false,"TC","ENG");
+  languages = ["ESP", "ENG", "POT"];
+  lenguageInvalid = false;
+  usuario = new Employee('Eduard', 'Duarte', "", false, "TC", "default");
 
-  firtsCapitanFunc(inValue: string){
-    if (inValue.length > 0){
+  validateLanguage(leng: String) {
+    if (leng === "default") {
+      this.lenguageInvalid = true;
+      console.log(this.usuario);
+    } else {
+      this.lenguageInvalid = false;
+      console.log(this.usuario);
+    }
+  }
+
+  firtsCapitanFunc(inValue: string) {
+    if (inValue.length > 0) {
       this.usuario.secondSurname = inValue.charAt(0).toUpperCase() + inValue.slice(1);
     }
   }

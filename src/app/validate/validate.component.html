@@ -1,10 +1,10 @@
 <div class="container">
   <h2>Angular Forms: </h2>
-  <form #form="ngForm" >
+  <form #form="ngForm">
 
     <div class="form-group has-error">
       <label [class.text-danger]="fName.invalid && fName.touched">Firs Name</label>
-      <input [class.is-invalid]='fName.invalid && fName.touched' pattern="...+" type="text"  #pNombre #fName='ngModel' required class="form-control" name="firsName" ngModel>
+      <input [class.is-invalid]='fName.invalid && fName.touched' pattern="...+" type="text" #pNombre #fName='ngModel' required class="form-control" name="firsName" ngModel>
       <div *ngIf="fName.invalid && fName.touched" class="alert alert-danger">
         Firs Name is required pattern ...+
       </div>
@@ -12,9 +12,11 @@
         Errors in Firsname!
       </div>
     </div>
-
+    <button type="submit" class="btn btn-primary" [class.disabled]="form.invalid" >OK</button>
   </form>
 </div>
+
+<hr>
 
 <!--Cards-->
 <div class="card-deck">
@@ -65,4 +67,4 @@
   </div>
 
 </div>
-<button type="button" class="btn btn-outline-dark"  (click)='logEd(pNombre)'>Consola &raquo;</button>
+<button type="button" class="btn btn-outline-dark" (click)='logEd(pNombre)'>Consola &raquo;</button>

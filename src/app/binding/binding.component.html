@@ -29,19 +29,24 @@
     </div>
     <div class="c-radio">
       <label>
-        <input type="radio" name="tipo-pago " value="TD" [(ngModel)]="usuario.paymentType" checked >
+        <input type="radio" name="tipo-pago " value="TD" [(ngModel)]="usuario.paymentType" checked>
         TD
       </label>
     </div>
 
     <div class="form-group">
-      <select class="form-control" [(ngModel)]="usuario.languages" name="language"  >
+      <label [class.text-danger]="lenguageInvalid">Primary Language</label>
+      <select class="form-control" #languageClass [class.is-invalid]="lenguageInvalid" [(ngModel)]="usuario.languages"
+        name="language" (blur)="validateLanguage(languageClass.value)"
+        (change)="validateLanguage(languageClass.value)">
+
+        <option value="default">select language...</option>
         <option *ngFor="let lang of languages">
           {{lang}}
         </option>
       </select>
     </div>
-<!--
+    <!--
     <div class="form-group">
       <label>Date</label>
       <input type="color" class="form-control" name="dateEnt" ngModel >
