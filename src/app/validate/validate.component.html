@@ -1,10 +1,18 @@
 <div class="container">
   <h2>Angular Forms: </h2>
-  <form #form="ngForm">
-    <div class="form-group">
-      <label for="">Firs Name</label>
-      <input type="text" #pNombre #fName='ngModel' required class="form-control" name="firsName" ngModel>
+  <form #form="ngForm" >
+
+    <div class="form-group has-error">
+      <label [class.text-danger]="fName.invalid && fName.touched">Firs Name</label>
+      <input [class.is-invalid]='fName.invalid && fName.touched' type="text"  #pNombre #fName='ngModel' required class="form-control" name="firsName" ngModel>
+      <div *ngIf="fName.invalid && fName.touched" class="alert alert-danger">
+        Firs Name is required
+      </div>
+      <div class="invalid-feedback">
+        Errors in Firsname!
+      </div>
     </div>
+
   </form>
 </div>
 
