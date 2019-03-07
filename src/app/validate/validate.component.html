@@ -4,9 +4,9 @@
 
     <div class="form-group has-error">
       <label [class.text-danger]="fName.invalid && fName.touched">Firs Name</label>
-      <input [class.is-invalid]='fName.invalid && fName.touched' type="text"  #pNombre #fName='ngModel' required class="form-control" name="firsName" ngModel>
+      <input [class.is-invalid]='fName.invalid && fName.touched' pattern="...+" type="text"  #pNombre #fName='ngModel' required class="form-control" name="firsName" ngModel>
       <div *ngIf="fName.invalid && fName.touched" class="alert alert-danger">
-        Firs Name is required
+        Firs Name is required pattern ...+
       </div>
       <div class="invalid-feedback">
         Errors in Firsname!
