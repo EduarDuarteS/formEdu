@@ -23,7 +23,11 @@ export class FormularioComponent implements OnInit {
   funcSubmitForm(form: NgForm){
     if(this.isInvalidLenguage)
     return;
-    this.formPosterS.postEmployeForm(form.value);
+    this.formPosterS.postEmployeForm(form.value)
+    .subscribe(
+      data => console.log('success: ', data),
+      err => console.log('error: ', err)
+    );
     // console.log(form.value);
   }
 
