@@ -1,17 +1,17 @@
 <div class="container">
   <h2>Angular Forms: </h2>
-  <form #form="ngForm" >
+  <form #formEd="ngForm" (submit)='funcSubmitForm(formEd)' >
     <div class="form-group">
       <label for="">Firs Name</label>
-      <input type="text" class="form-control" name="firsName" ngModel >
+      <input type="text" required class="form-control" name="firsName" ngModel >
     </div>
     <div class="form-group">
       <label for="">Last Name</label>
-      <input type="text" class="form-control" name="lastName" ngModel >
+      <input type="text" required class="form-control" name="lastName" ngModel >
     </div>
     <div class="checkbox">
       <label>
-        <input type="checkbox" name="tiempo-completo" ngModel >  Full Time Employee
+        <input type="checkbox"  name="tiempo-completo" ngModel >  Full Time Employee
       </label>
     </div>
     <label>Pyment Type </label>
@@ -28,8 +28,10 @@
       </label>
     </div>
 
-    <div class="form-group">
-      <select class="form-control" >
+    <div class="form-group" >
+      <select class="form-control" #selectEd [class.is-invalid]=isInvalidLenguage
+      (change)="validLenguage(selectEd.value)">
+        <option value="default">select lenguage...</option>
         <option *ngFor="let lang of languages">
           {{lang}}
         </option>
@@ -41,7 +43,7 @@
       <input type="color" class="form-control" name="dateEnt" ngModel >
     </div>
 
-    <button class="btn btn-primary" type="submit" name="button">OK</button>
-    <h4>es pristine: {{ form.pristine }}</h4>
+    <button class="btn btn-primary" [disabled]="formEd.invalid || isInvalidLenguage" type="submit" name="button">OK</button>
+    <h4>es pristine: {{ formEd.pristine }}</h4>
   </form>
 </div>
