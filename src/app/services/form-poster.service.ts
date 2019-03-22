@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../models/employee.model';
-import { HttpClient, HttpResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpHeaders, HttpRequest, HttpErrorResponse } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 // import 'rxjs/Rx'
 
 
 // import 'rxjs/add/operator/map';
-import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -17,15 +18,23 @@ export class FormPosterService {
   }
 
   private extractData(res: Response) {
-    let body = res.json();
-    console.log(body);
+    console.log('res: ' + JSON.stringify(res));
+    let body = res;
     return body || {};
   }
 
-  private handleError(error: any) {
-    console.error('post error: ', error);
-    return Observable.throw(error.statusText);
-  }
+  handleError(error:any) {
+     let errorMessage = '';
+     if (error.error instanceof ErrorEvent) {
+       // client-side error
+       errorMessage = `Error: ${error.error.message}`;
+     } else {
+       // server-side error
+       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+     }
+     // window.alert(errorMessage);
+     return throwError(errorMessage);
+   }
 
   postEmployeForm(employe: Employee): Observable<any> {
     console.log('posting Employe: ', employe)
@@ -37,7 +46,17 @@ export class FormPosterService {
 
     return this.http.post('http://localhost:3100/postemployee', body, options)
       .pipe(map(this.extractData),
-        catchError(this.handleError)
+        // Trae todo el error
+        catchError(e => throwError(e))
+
+        // Error en un funcion de flecha
+        // catchError((err: HttpErrorResponse) => {
+        //   console.error('post error: ', err);
+        //   return throwError(err);
+        // })
+
+        // Error con una funcion
+        // catchError(this.handleError)
       )
   }
 
