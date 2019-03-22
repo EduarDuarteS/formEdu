@@ -1,4 +1,6 @@
-<div class="container">
+
+<h3 *ngIf="languages.length == 0" >Loading...</h3>
+<div class="container" *ngIf="languages.length > 0" >
   <h2>Angular Forms: </h2>
   <form #formEd="ngForm" (submit)='funcSubmitForm(formEd)' >
     <div class="form-group">

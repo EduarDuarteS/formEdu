@@ -9,25 +9,31 @@ import { NgForm } from "@angular/forms";
 })
 export class FormularioComponent implements OnInit {
 
-  isInvalidLenguage=false;
-  validLenguage(leng: string){
-    if(leng === 'default'){
-      this.isInvalidLenguage=true;
-    }else{
-      this.isInvalidLenguage=false;
+  languages = [];
+  isInvalidLenguage = false;
+  validLenguage(leng: string) {
+    if (leng === 'default') {
+      this.isInvalidLenguage = true;
+    } else {
+      this.isInvalidLenguage = false;
     }
   }
-  languages=["ENG", "ESP", "OTHER"]
-  constructor(private formPosterS: FormPosterService) { }
 
-  funcSubmitForm(form: NgForm){
-    if(this.isInvalidLenguage)
-    return;
+  constructor(private formPosterS: FormPosterService) {
+    this.formPosterS.getLanguages().subscribe(
+      allData => this.languages = allData.data.languages,
+      error => console.log('Error: ', error)
+    )
+  }
+
+  funcSubmitForm(form: NgForm) {
+    if (this.isInvalidLenguage)
+      return;
     this.formPosterS.postEmployeForm(form.value)
-    .subscribe(
-      data => console.log('success: ', data),
-      err => console.log('error: ', err)
-    );
+      .subscribe(
+        data => console.log('success: ', data),
+        err => console.log('error: ', err)
+      );
     // console.log(form.value);
   }
 
