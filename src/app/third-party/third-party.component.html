@@ -1,0 +1,18 @@
+<p>
+  <a href="https://angular.io/resources">https://angular.io/resources</a>
+
+  <input type="text" name="DateExample"
+           [bsValue]="fecha"
+           [minDate]="minDate"
+           placeholder="Datepicker"
+           class="form-control"
+           bsDatepicker>
+
+   <input type="text"
+            name="dateDos"
+            [(ngModel)]="fechaDos"
+            placeholder="Datepicker"
+            class="form-control"
+            bsDatepicker>
+</p>
+<h5>{{fechaDos}}</h5>

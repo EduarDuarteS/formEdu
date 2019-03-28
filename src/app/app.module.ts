@@ -10,6 +10,9 @@ import { BindingComponent } from './binding/binding.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ValidateComponent } from './validate/validate.component';
+import { ThirdPartyComponent } from './third-party/third-party.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,8 @@ import { ValidateComponent } from './validate/validate.component';
     BindingComponent,
     FormularioComponent,
     WelcomeComponent,
-    ValidateComponent
+    ValidateComponent,
+    ThirdPartyComponent
   ],
   imports: [
     BrowserModule,
@@ -25,11 +29,13 @@ import { ValidateComponent } from './validate/validate.component';
     FormsModule,
     BrowserModule,
     HttpClientModule,
+    BsDatepickerModule.forRoot(),
     RouterModule.forRoot([
       { path: 'validate', component: ValidateComponent },
       { path: 'binding', component: BindingComponent },
       { path: 'form', component: FormularioComponent },
       { path: 'welcome', component: WelcomeComponent },
+      { path: 'tparty', component: ThirdPartyComponent},
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ])
